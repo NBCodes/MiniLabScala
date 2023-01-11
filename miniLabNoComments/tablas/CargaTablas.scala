@@ -1,4 +1,4 @@
-package miniLab.tablas
+package miniLabNoComments.tablas
 
 import miniLab.tablas
 import org.apache.log4j.{Level, Logger}
@@ -15,8 +15,6 @@ object CargaTablas {
   case class Vehiculos(n_Serie: Int, tipo_Vehiculo: String, n_Ruedas: Int, matricula: String, combustible: String)
   case class Domicilios(persona: Int, pais: String, provincia: String, ciudad: String, c_Postal: String, puerta: String)
   case class Pertenencias(persona: Int, vehiculo: Int, casa: Byte, ordenador: Byte)
-
-  // Mostrar solo errores en consola
   Logger.getLogger("org").setLevel(Level.ERROR)
 
   val spark = SparkSession.builder
@@ -24,7 +22,6 @@ object CargaTablas {
     .appName("cargaTablas")
     .getOrCreate()
   import spark.implicits._
-
   // TODO VEHICULOS
   val vehiculosSchema = StructType(Array(
     StructField("n_Serie", IntegerType, true),
